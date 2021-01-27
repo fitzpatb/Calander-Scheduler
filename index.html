@@ -84,6 +84,9 @@
       //code each div individually
       //if the div value matches the hour make the div be present
       $(document).ready(function() {
+        var todaysDate = $("#currentDay");
+        todaysDate.text(moment().format('dddd, MMMM Do'));
+
         var nineTask = $("#nineAm .description");
         var tenTask = $("#tenAm .description");
         var elevenTask = $("#elevenAm .description");
@@ -99,16 +102,62 @@
         var nineSave = $("#nineAm .saveBtn");
         var tenSave = $("#tenAm .saveBtn");
         var elevenSave = $("#elevenAm .saveBtn");
-        nineTask.text(localStorage.getItem('thing'));
+        var twelveSave = $("twelvePm .saveBtn");
+        var oneSave = $("onePm .saveBtn");
+        var twoSave = $("twoPm .saveBtn");
+        var threeSave = $("threePm .saveBtn");
+        var fourSave = $("fourPm .saveBtn");
+        var fiveSave = $("fivePm .saveBtn");
+
+        nineTask.text(localStorage.getItem('nine'));
+        tenTask.text(localStorage.getItem('ten'));
+        elevenTask.text(localStorage.getItem('eleven'));
+        twelveTask.text(localStorage.getItem('twelve'));
+        oneTask.text(localStorage.getItem('one'));
+        twoTask.text(localStorage.getItem('two'));
+        threeTask.text(localStorage.getItem('three'));
+        fourTask.text(localStorage.getItem('four'));
+        fiveTask.text(localStorage.getItem('five'));
 
 
         //stuff = localStorage.getItem('thing');
 
         nineSave.on("click", function() {
-          var stuff = $("#nineAm textarea").val();
-          localStorage.setItem('thing', stuff);
-
-        })
+          var nine = $("#nineAm textarea").val();
+          localStorage.setItem('nine', nine);
+        });
+        tenSave.on("click", function() {
+          var ten = $("#tenAm textarea").val();
+          localStorage.setItem('ten', ten);
+        });
+        elevenSave.on("click", function() {
+          var eleven = $("#elevenAm textarea").val();
+          localStorage.setItem('eleven', eleven);
+        });
+        twelveSave.on("click", function() {
+          var twelve = $("#twelvePm textarea").val();
+          localStorage.setItem('twelve', twelve);
+        });
+        oneSave.on("click", function() {
+          var one = $("#onePm textarea").val();
+          localStorage.setItem('one', one);
+        });
+        twoSave.on("click", function() {
+          var two = $("#twoPm textarea").val();
+          localStorage.setItem('two', two);
+        });
+        threeSave.on("click", function() {
+          var three = $("#threePm textarea").val();
+          localStorage.setItem('three', three);
+        });
+        fourSave.on("click", function() {
+          var four = $("#fourPm textarea").val();
+          localStorage.setItem('four', four);
+        });
+        fiveSave.on("click", function() {
+          var five = $("#fivePm textarea").val();
+          localStorage.setItem('five', five);
+        });
 
 
 
@@ -119,6 +168,7 @@
 
           if (moment().format('hA') === "12AM" || moment().format('hA') === "1AM" || moment().format('hA') === "2AM" || moment().format('hA') === "3AM" || moment().format('hA') === "4AM" || moment().format('hA') === "5AM" || moment().format('hA') === "6AM" || moment().format('hA') === "7AM" || moment().format('hA') === "8AM") {
             tasks.removeClass("past").addClass("future");
+            localStorage.clear();
           } else if (moment().format('hA') === "9AM") {
             tasks.removeClass("past").addClass("future");
             nineTask.removeClass("future").addClass("present");
