@@ -28,56 +28,163 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container col-10">
+    <div class="container col-10 time-block">
       <!-- Timeblocks go here -->
       <div class="row" id="nineAm">
-        <div class="col-1 time"></div>
-        <div class="col-10 task"></div>
-        <div class="col-1 confirm"></div>
+        <div class="col-1 hour">9AM</div>
+        <div class="col-10 description">
+          <textarea></textarea>
+        </div>
+        <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="tenAm">
-        <div class="col-1 time"></div>
-        <div class="col-10 task"></div>
-        <div class="col-1 confirm"></div>
+        <div class="col-1 hour">10AM</div>
+        <div class="col-10 description">
+          <textarea></textarea>
+        </div>
+        <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="elevenAm">
-        <div class="col-1 time"></div>
-        <div class="col-10 task"></div>
-        <div class="col-1 confirm"></div>
+        <div class="col-1 hour">11AM</div>
+        <div class="col-10 description">
+          <textarea></textarea>
+        </div>
+        <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="twelvePm">
-        <div class="col-1 time"></div>
-        <div class="col-10 task"></div>
-        <div class="col-1 confirm"></div>
+        <div class="col-1 hour">12PM</div>
+        <div class="col-10 description">
+          <textarea></textarea>
+        </div>
+        <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="onePm">
-        <div class="col-1 time"></div>
-        <div class="col-10 task"></div>
-        <div class="col-1 confirm"></div>
+        <div class="col-1 hour">1PM</div>
+        <div class="col-10 description">
+          <textarea></textarea>
+        </div>
+        <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="twoPm">
-        <div class="col-1 time"></div>
-        <div class="col-10 task"></div>
-        <div class="col-1 confirm"></div>
+        <div class="col-1 hour">2PM</div>
+        <div class="col-10 description">
+          <textarea></textarea>
+        </div>
+        <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="threePm">
-        <div class="col-1 time"></div>
-        <div class="col-10 task"></div>
-        <div class="col-1 confirm"></div>
+        <div class="col-1 hour">3PM</div>
+        <div class="col-10 description">
+          <textarea></textarea>
+        </div>
+        <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="fourPm">
-        <div class="col-1 time"></div>
-        <div class="col-10 task"></div>
-        <div class="col-1 confirm"></div>
+        <div class="col-1 hour">4PM</div>
+        <div class="col-10 description">
+          <textarea></textarea>
+        </div>
+        <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="fivePm">
-        <div class="col-1 time"></div>
-        <div class="col-10 task"></div>
-        <div class="col-1 confirm"></div>
+        <div class="col-1 hour">5PM</div>
+        <div class="col-10 description">
+          <textarea></textarea>
+        </div>
+        <div class="col-1 saveBtn"></div>
       </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+      //assign values to the individual description divs
+      //code each div individually
+      //if the div value matches the hour make the div be present
+      $(document).ready(function() {
+        var nineTask = $("#nineAm .description");
+        var tenTask = $("#tenAm .description");
+        var elevenTask = $("#elevenAm .description");
+        var twelveTask = $("#twelvePm .description");
+        var oneTask = $("#onePm .description");
+        var twoTask = $("#twoPm .description");
+        var threeTask = $("#threePm .description");
+        var fourTask = $("#fourPm .description");
+        var fiveTask = $("#fivePm .description");
+
+        var tasks = $(".description");
+
+        tasks.append()
+
+
+
+        function setBackground() {
+
+          if (moment().format('hA') === "12AM" || moment().format('hA') === "1AM" || moment().format('hA') === "2AM" || moment().format('hA') === "3AM" || moment().format('hA') === "4AM" || moment().format('hA') === "5AM" || moment().format('hA') === "6AM" || moment().format('hA') === "7AM" || moment().format('hA') === "8AM") {
+            tasks.removeClass("past").addClass("future");
+          } else if (moment().format('hA') === "9AM") {
+            tasks.removeClass("past").addClass("future");
+            nineTask.removeClass("future").addClass("present");
+          } else if (moment().format('hA') === "10AM") {
+            tasks.removeClass("past").addClass("future");
+            nineTask.removeClass("present future").addClass("past");
+            tenTask.removeClass("future").addClass("present");
+          } else if (moment().format('hA') === "11AM") {
+            tasks.removeClass("past").addClass("future");
+            tenTask.removeClass("present future").addClass("past");
+            elevenTask.removeClass("future").addClass("present");
+            nineTask.removeClass("future").addClass("past");
+          } else if (moment().format('hA') === "12PM") {
+            tasks.removeClass("past").addClass("future");
+            elevenTask.removeClass("present future").addClass("past");
+            twelveTask.removeClass("future").addClass("present");
+            nineTask.removeClass("future").addClass("past");
+            tenTask.removeClass("future").addClass("past");
+          } else if (moment().format('hA') === "1PM") {
+            tasks.removeClass("past").addClass("future");
+            twelveTask.removeClass("present future").addClass("past");
+            oneTask.removeClass("future").addClass("present");
+            nineTask.removeClass("future").addClass("past");
+            tenTask.removeClass("future").addClass("past");
+            elevenTask.removeClass("future").addClass("past");
+          } else if (moment().format('hA') === "2PM") {
+            tasks.removeClass("future").addClass("past");
+            oneTask.removeClass("present future").addClass("past");
+            twoTask.removeClass("future").addClass("present");
+            threeTask.removeClass("past").addClass("future");
+            fourTask.removeClass("past").addClass("future");
+            fiveTask.removeClass("past").addClass("future");
+          } else if (moment().format('hA') === "3PM") {
+            tasks.removeClass("future").addClass("past");
+            twoTask.removeClass("present future").addClass("past");
+            threeTask.removeClass("future").addClass("present");
+            fourTask.removeClass("past").addClass("future");
+            fiveTask.removeClass("past").addClass("future");
+          } else if (moment().format('hA') === "4PM") {
+            tasks.removeClass("future").addClass("past");
+            threeTask.removeClass("present future").addClass("past");
+            fourTask.removeClass("future").addClass("present");
+            fiveTask.removeClass("past").addClass("future");
+          } else if (moment().format('hA') === "5PM") {
+            tasks.removeClass("future").addClass("past");
+            fourTask.removeClass("present").addClass("past");
+            fiveTask.removeClass("future past").addClass("present");
+          } else {
+            tasks.removeClass("present").addClass("past");
+          }
+        }
+
+        setInterval(setBackground, 1000);
+        //focus on the time element
+        //make it so that when the time is 8AM all boxes are green for future.
+        //as each hour passes change the box that needs the present class
+        //as the next hour approaches change class on the the new present and old present
+        //repeat until all elements are in past class
+        //at 6pm change all elements to future class
+
+
+
+      });
+    </script>
   </body>
 </html>
