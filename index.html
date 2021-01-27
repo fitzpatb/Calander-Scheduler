@@ -32,65 +32,47 @@
       <!-- Timeblocks go here -->
       <div class="row" id="nineAm">
         <div class="col-1 hour">9AM</div>
-        <div class="col-10 description">
-          <textarea></textarea>
-        </div>
+        <textarea class="col-10 description"></textarea>
         <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="tenAm">
         <div class="col-1 hour">10AM</div>
-        <div class="col-10 description">
-          <textarea></textarea>
-        </div>
+        <textarea class="col-10 description"></textarea>
         <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="elevenAm">
         <div class="col-1 hour">11AM</div>
-        <div class="col-10 description">
-          <textarea></textarea>
-        </div>
+        <textarea class="col-10 description"></textarea>
         <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="twelvePm">
         <div class="col-1 hour">12PM</div>
-        <div class="col-10 description">
-          <textarea></textarea>
-        </div>
+        <textarea class="col-10 description"></textarea>
         <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="onePm">
         <div class="col-1 hour">1PM</div>
-        <div class="col-10 description">
-          <textarea></textarea>
-        </div>
+        <textarea class="col-10 description"></textarea>
         <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="twoPm">
         <div class="col-1 hour">2PM</div>
-        <div class="col-10 description">
-          <textarea></textarea>
-        </div>
+        <textarea class="col-10 description"></textarea>
         <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="threePm">
         <div class="col-1 hour">3PM</div>
-        <div class="col-10 description">
-          <textarea></textarea>
-        </div>
+        <textarea class="col-10 description"></textarea>
         <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="fourPm">
         <div class="col-1 hour">4PM</div>
-        <div class="col-10 description">
-          <textarea></textarea>
-        </div>
+        <textarea class="col-10 description"></textarea>
         <div class="col-1 saveBtn"></div>
       </div>
       <div class="row" id="fivePm">
         <div class="col-1 hour">5PM</div>
-        <div class="col-10 description">
-          <textarea></textarea>
-        </div>
+        <textarea class="col-10 description"></textarea>
         <div class="col-1 saveBtn"></div>
       </div>
     </div>
@@ -114,7 +96,22 @@
 
         var tasks = $(".description");
 
-        tasks.append()
+        var nineSave = $("#nineAm .saveBtn");
+        var tenSave = $("#tenAm .saveBtn");
+        var elevenSave = $("#elevenAm .saveBtn");
+        nineTask.text(localStorage.getItem('thing'));
+
+
+        //stuff = localStorage.getItem('thing');
+
+        nineSave.on("click", function() {
+          var stuff = $("#nineAm textarea").val();
+          localStorage.setItem('thing', stuff);
+
+        })
+
+
+
 
 
 
@@ -175,6 +172,8 @@
         }
 
         setInterval(setBackground, 1000);
+
+        console.log(nineTask.text());
         //focus on the time element
         //make it so that when the time is 8AM all boxes are green for future.
         //as each hour passes change the box that needs the present class
