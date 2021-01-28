@@ -102,12 +102,12 @@
         var nineSave = $("#nineAm .saveBtn");
         var tenSave = $("#tenAm .saveBtn");
         var elevenSave = $("#elevenAm .saveBtn");
-        var twelveSave = $("twelvePm .saveBtn");
-        var oneSave = $("onePm .saveBtn");
-        var twoSave = $("twoPm .saveBtn");
-        var threeSave = $("threePm .saveBtn");
-        var fourSave = $("fourPm .saveBtn");
-        var fiveSave = $("fivePm .saveBtn");
+        var twelveSave = $("#twelvePm .saveBtn");
+        var oneSave = $("#onePm .saveBtn");
+        var twoSave = $("#twoPm .saveBtn");
+        var threeSave = $("#threePm .saveBtn");
+        var fourSave = $("#fourPm .saveBtn");
+        var fiveSave = $("#fivePm .saveBtn");
 
         nineTask.text(localStorage.getItem('nine'));
         tenTask.text(localStorage.getItem('ten'));
@@ -168,7 +168,6 @@
 
           if (moment().format('hA') === "12AM" || moment().format('hA') === "1AM" || moment().format('hA') === "2AM" || moment().format('hA') === "3AM" || moment().format('hA') === "4AM" || moment().format('hA') === "5AM" || moment().format('hA') === "6AM" || moment().format('hA') === "7AM" || moment().format('hA') === "8AM") {
             tasks.removeClass("past").addClass("future");
-            localStorage.clear();
           } else if (moment().format('hA') === "9AM") {
             tasks.removeClass("past").addClass("future");
             nineTask.removeClass("future").addClass("present");
